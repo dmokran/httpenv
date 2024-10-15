@@ -1,8 +1,6 @@
 services:
   httpenv:
-    #image: "${TESTING_IMAGE}"
-    image: dmokran/httpenv
-  
+    image: "${TESTING_IMAGE}"
   postgres:
     image: postgres
     environment:
@@ -14,8 +12,7 @@ services:
       test: /healthchecks/postgres-healthcheck
       interval: "5s"
   sut:
-    #image: "${TESTING_IMAGE}"
-    image: dmokran/httpenv
+    image: "${TESTING_IMAGE}"
     depends_on:
       httpenv:
         condition: service_started
