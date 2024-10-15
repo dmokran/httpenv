@@ -6,6 +6,7 @@ FROM alpine
 RUN apk add --no-cache bash
 RUN addgroup -g 1000 httpenv \
     && adduser -u 1000 -G httpenv -D httpenv
+RUN touch dm1
 COPY --from=0 --chown=httpenv:httpenv /go/httpenv /httpenv
 EXPOSE 8888
 # we're not changing user in this example, but you could:
